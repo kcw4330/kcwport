@@ -53,9 +53,23 @@ h3 {
     position: fixed;
     width: 100%;
     z-index: 10;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+    top: 0;
 }
 
-.btns .container {
+.btns.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.btns .container-bgcolor {
     top: 20px;
     position: relative;
     max-width: 700px;
@@ -176,3 +190,28 @@ h3 {
 .img5 img{
     width: 1180px;
 }
+
+.arrow-up{
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    opacity: 0%;
+    transition: .3s;
+}
+.arrow-up span {
+    font-size: 30px;
+}
+.arrow-up.show{
+    opacity: 1;
+}
+
+.btns.show{
+    opacity: 1;
+    visibility: visible;
+}
+
