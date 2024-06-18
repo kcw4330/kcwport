@@ -215,3 +215,39 @@ h3 {
     visibility: visible;
 }
 
+/* Add these styles to your existing CSS file */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.animated-image {
+    opacity: 0; /* Ensure images are initially hidden */
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.show {
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+.hide {
+    animation: slideOut 1s ease-in-out forwards;
+}
+
