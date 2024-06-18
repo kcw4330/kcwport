@@ -51,9 +51,9 @@
                 </div>
             </div>
             <h1 class="img1">
-            <img src="img/에코백.png" alt="">
-            <img src="img/상자.png" alt="">
-            <img src="img/케이스.png" alt="">
+            <img src="img/에코백.png" alt="" class="animated-image">
+            <img src="img/상자.png" alt="" class="animated-image">
+            <img src="img/케이스.png" alt="" class="animated-image">
         </h1>
     </div>
     </section>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <h1 class="img2">
-            <img src="img/영상.png" alt="">
+            <img src="img/영상.png" alt="" class="animated-image">
             </h1>
         </div>
     </section>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <h1 class="img3">
-            <img src="img/흑인.png" alt="">
+            <img src="img/흑인.png" alt="" class="animated-image">
             </h1>
         </div>
     </section>
@@ -98,12 +98,12 @@
                 </div>
             </div>
             <h1 class="img4">
-                <img src="img/naver.png" alt="">
-                <img src="img/youtube.png" alt="">
-                <img src="img/insta.png" alt="">
+                <img src="img/naver.png" alt="" class="animated-image">
+                <img src="img/youtube.png" alt="" class="animated-image">
+                <img src="img/insta.png" alt="" class="animated-image">
             </h1>
             <h1 class="img5">
-                <img src="img/last kiss.png" alt="">
+                <img src="img/last kiss.png" alt="" class="animated-image">
             </h1>
         </div>
     </section>
@@ -117,69 +117,91 @@
     <script>
         const btnHome = document.querySelector('.home');
         const sectionHome = document.querySelector('#home');
-        // btnHome.addEventListener('click',function() {명령})
         btnHome.addEventListener('click',function() {
             sectionHome.scrollIntoView({behavior:"smooth",block:"center"});
         });
         
         const btnAbout = document.querySelector('.about');
         const sectionAbout = document.querySelector('#about');
-        // btnHome.addEventListener('click',function() {명령})
         btnAbout.addEventListener('click',function() {
             sectionAbout.scrollIntoView({behavior:"smooth",block:"center"});
         });
 
         const btnSkills = document.querySelector('.skills');
         const sectionSkills = document.querySelector('#skills');
-        // btnHome.addEventListener('click',function() {명령})
         btnSkills.addEventListener('click',function() {
             sectionSkills.scrollIntoView({behavior:"smooth",block:"center"});
         });
 
         const btnWorks = document.querySelector('.works');
         const sectionWorks = document.querySelector('#works');
-        // btnHome.addEventListener('click',function() {명령})
         btnWorks.addEventListener('click',function() {
             sectionWorks.scrollIntoView({behavior:"smooth",block:"center"});
         });
 
         const btnContact = document.querySelector('.contact');
         const sectionContact = document.querySelector('#contact');
-        // btnHome.addEventListener('click',function() {명령})
         btnContact.addEventListener('click',function() {
             sectionContact.scrollIntoView({behavior:"smooth",block:"center"});
         });
 
-// 버튼과 화살표 요소를 선택합니다.
-const btns = document.querySelector('.btns');
-const arrowUp = document.querySelector('.arrow-up');
+        const btns = document.querySelector('.btns');
+        const arrowUp = document.querySelector('.arrow-up');
 
-// 화살표를 클릭하면 페이지의 맨 위로 부드럽게 스크롤합니다.
-arrowUp.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+        arrowUp.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-// 스크롤 이벤트를 추가하여 버튼과 화살표를 표시 또는 숨깁니다.
-window.addEventListener('scroll', function() {
-    // 스크롤된 위치를 확인합니다.
-    const scrollY = window.scrollY || window.pageYOffset;
-    
-    // 스크롤 위치가 300보다 큰 경우 버튼과 화살표를 보여줍니다.
-    if (scrollY > 300) {
-        btns.style.transform = 'translateY(0)';
-        arrowUp.classList.add('show');
-    } else {
-        // 그렇지 않으면 숨깁니다.
-        btns.style.transform = 'translateY(-100%)';
-        arrowUp.classList.remove('show');
-    }
-});
-       
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            
+            if (scrollY > 300) {
+                btns.style.transform = 'translateY(0)';
+                arrowUp.classList.add('show');
+            } else {
+                btns.style.transform = 'translateY(-100%)';
+                arrowUp.classList.remove('show');
+            }
+        });
 
+        // Add intersection observer for specific images
+        const images1 = document.querySelectorAll('.img1 .animated-image');
+        const images2 = document.querySelectorAll('.img2 .animated-image');
+        const images3 = document.querySelectorAll('.img3 .animated-image');
+        const images4 = document.querySelectorAll('.img4 .animated-image');
+        const images5 = document.querySelectorAll('.img5 .animated-image');
 
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    entry.target.classList.remove('hide');
+                } else {
+                    entry.target.classList.remove('show');
+                    entry.target.classList.add('hide');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        images1.forEach(image => {
+            observer.observe(image);
+        });
+        images2.forEach(image => {
+            observer.observe(image);
+        });
+        images3.forEach(image => {
+            observer.observe(image);
+        });
+        images4.forEach(image => {
+            observer.observe(image);
+        });
+        images5.forEach(image => {
+            observer.observe(image);
+        });
     </script>
-    
 </body>
-
 </html>
+
 
